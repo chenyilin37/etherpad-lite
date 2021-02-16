@@ -58,7 +58,7 @@ jobs:
 
     - name: Install Etherpad plugins
       run: >
-        npm install --no-save
+        npm install --no-save --legacy-peer-deps
         ep_align
         ep_author_hover
         ep_cursortrace
@@ -135,7 +135,7 @@ jobs:
 
     - name: Install Etherpad plugins
       run: >
-        npm install
+        npm install --no-save --legacy-peer-deps
         ep_align
         ep_author_hover
         ep_cursortrace

@@ -52,7 +52,7 @@ jobs:
 
     - name: Install etherpad plugins
       run: >
-        npm install --no-save
+        npm install --no-save --legacy-peer-deps
         ep_align
         ep_author_hover
         ep_cursortrace
