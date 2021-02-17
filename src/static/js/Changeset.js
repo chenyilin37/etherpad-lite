@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * This is the Changeset library copied from the old Etherpad with some modifications
  * to use it in node.js
