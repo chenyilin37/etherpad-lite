@@ -1339,6 +1339,7 @@ exports.compose = (cs1, cs2, pool) => {
  * @param pool {AttribPool} Attribute pool
  */
 exports.attributeTester = (attribPair, pool) => {
+  const never = (attribs) => false;
   if (!pool) {
     return never;
   }
@@ -1349,8 +1350,6 @@ exports.attributeTester = (attribPair, pool) => {
     const re = new RegExp(`\\*${exports.numToString(attribNum)}(?!\\w)`);
     return (attribs) => re.test(attribs);
   }
-
-  const never = (attribs) => false;
 };
 
 /**
