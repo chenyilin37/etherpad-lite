@@ -57,7 +57,7 @@ const makeChangesetTracker = (scheduler, apool, aceCallbacksProvider) => {
         }
       }, 0);
     }
-  }
+  };
 
   let self;
   return self = {
