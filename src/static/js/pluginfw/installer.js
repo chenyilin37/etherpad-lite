@@ -21,7 +21,7 @@ const onAllTasksFinished = () => {
 
 let tasks = 0;
 
-function wrapTaskCb(cb) {
+const wrapTaskCb = (cb) => {
   tasks++;
 
   return function (...args) {
@@ -29,7 +29,7 @@ function wrapTaskCb(cb) {
     tasks--;
     if (tasks === 0) onAllTasksFinished();
   };
-}
+};
 
 exports.uninstall = async (pluginName, cb = null) => {
   cb = wrapTaskCb(cb);
