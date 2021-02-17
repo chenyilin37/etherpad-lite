@@ -564,7 +564,7 @@ exports.textLinesMutator = (lines) => {
   //            curCol == 0
 
   const lines_applySplice = (s) => {
-    lines.splice(0, ...s);
+    lines.splice.apply(lines, s);
   };
 
   const lines_toSource = () => lines.toSource();
