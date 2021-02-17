@@ -18,14 +18,15 @@
 
 const padutils = require('./pad_utils').padutils;
 const hooks = require('./pluginfw/hooks');
+const browser = require('./browser');
 
 let myUserInfo = {};
 
 let colorPickerOpen = false;
 let colorPickerSetup = false;
 
-const paduserlist = (() => {
-  const rowManager = (() => {
+const paduserlist = (function () {
+  const rowManager = (function () {
     // The row manager handles rendering rows of the user list and animating
     // their insertion, removal, and reordering.  It manipulates TD height
     // and TD opacity.
@@ -290,7 +291,7 @@ const paduserlist = (() => {
       updateRow,
     };
     return self;
-  }); // //////// rowManager
+  }()); // //////// rowManager
   const otherUsersInfo = [];
   const otherUsersData = [];
 
@@ -346,7 +347,7 @@ const paduserlist = (() => {
 
   let pad = undefined;
   const self = {
-    init: (myInitialUserInfo, _pad) => {
+    init(myInitialUserInfo, _pad) {
       pad = _pad;
 
       self.setMyUserInfo(myInitialUserInfo);
@@ -543,7 +544,7 @@ const paduserlist = (() => {
     },
   };
   return self;
-})();
+}());
 
 const getColorPickerSwatchIndex = (jnode) => $('#colorpickerswatches li').index(jnode);
 
