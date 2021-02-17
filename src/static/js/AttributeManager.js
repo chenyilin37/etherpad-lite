@@ -406,7 +406,7 @@ AttributeManager.prototype = _(AttributeManager.prototype).extend({
       hasAttrib = this.getAttributeOnSelection(attributeName);
     } else {
       const attributesOnCaretPosition = this.getAttributesOnCaret();
-      hasAttrib = _.contains(_.flatten(attributesOnCaretPosition), attributeName);
+      hasAttrib = [].concat(...attributesOnCaretPosition).includes(attributeName);
     }
     return hasAttrib;
   },
