@@ -13,6 +13,10 @@ try() { "$@" || fatal "'$@' failed"; }
 MY_DIR=$(try cd "${0%/*}" && try pwd -P) || exit 1
 try cd "${MY_DIR}/../../../.."
 
+log "Is log4js installed?"
+find . -name log4js
+find . -name log4js -exec sh -c 'echo "$1"; ls -l "$1"' - '{}' \;
+
 log "Assuming src/bin/installDeps.sh has already been run"
 node src/node/server.js --experimental-worker "${@}" &
 ep_pid=$!

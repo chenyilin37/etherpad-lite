@@ -40,11 +40,15 @@ log "Ensure that all dependencies are up to date...  If this is the first time y
   cd node_modules
   [ -e ep_etherpad-lite ] || ln -s ../src ep_etherpad-lite
   cd ep_etherpad-lite
-  npm ci --no-optional
+  npm ci -ddd --no-optional
 ) || {
   rm -rf src/node_modules
   exit 1
 }
+
+echo "Is log4js installed?" >&2
+find . -name log4js
+find . -name log4js -exec sh -c 'echo "$1"; ls -l "$1"' - '{}' \;
 
 # Remove all minified data to force node creating it new
 log "Clearing minified cache..."
